@@ -349,10 +349,10 @@ def parse_gslb_rules_config(config_text, search_string):
                 key_value[0] = "DNS Name"
                 key_value[1] = key_value[1].replace('"', '')
             elif key_value[0] == "fallback":
-                if key_value[0] == "ena":
-                    key_value.append("Yes")
+                if key_value[1] == "ena":
+                    key_value[1] = "Yes"
                 else:
-                    key_value.append("No")
+                    key_value[1] = "No"
                 key_value[0] = "Fallback"
             elif key_value[0] == "gmetric":
                 key_value[0] = "Metric " + str(metric) + " gmetric"

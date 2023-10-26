@@ -144,17 +144,6 @@ def create_excel_output(lines, output_path):
     gslb_rules_dataset = parse_gslb_rules_config(lines, "/c/slb/gslb/rule")
     tabulate(gslb_rules_dataset)
     create_parse_populate_style(wb, gslb_rules_dataset, gslb_rules_sheet_name, table_style="TableStyleMedium8")
-    # Generic Sheets
-    # populate_sheet_basic(l2_sheet, lines, "/c/l2/")
-    # populate_sheet_basic(summary_sheet, lines, "/c/sys/")
-    # populate_sheet_basic(gslb_network_sheet_name, lines, "/c/slb/gslb/network")
-    # populate_sheet_basic(gslb_rules_sheet_name, lines, "/c/slb/gslb/rule")
-    # nat_dataset = parse_nat_config(lines)
-    # populate_sheet(nat_dataset, nat_sheet)
-    # create_and_style_table(wb, nat_sheet_name, table_name="NAT_Data", table_style="TableStyleMedium9")
-    # firewall_dataset = parse_filter_config(lines)
-    # populate_sheet(firewall_dataset, firewall_sheet)
-    # create_and_style_table(wb, firewall_sheet_name, table_name="Firewall_Data", table_style="TableStyleMedium9")
 
     wb.save(output_path)
 
@@ -228,8 +217,3 @@ if __name__ == "__main__":
     input_file = parse_file(args.file_path)
     create_excel_output(input_file, output_filename)
     parsed_data = parse_nat_config(input_file)
-    # Using tabulate to print the parsed data
-    print(tabulate(parsed_data, headers="keys", tablefmt="grid"))
-    filter_data = parse_firewall_config(input_file)
-    # Using tabulate to print the parsed data
-    print(tabulate(filter_data, headers="keys", tablefmt="grid"))
